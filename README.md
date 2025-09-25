@@ -8,8 +8,8 @@ Training high-performance neural network models in the cloud, quantizing them in
 To address these challenges, we propose a calibration data selection method, termed CaPTQ. Specifically, we first analyze the error accumulation effect during quantization to investigate the precise role of calibration data in this process. Second, to mitigate the severe performance degradation of existing PTQ methods under low-bit settings, we propose selecting data with smoother pixel distributions during calibration, thereby reducing rounding and reconstruction losses layer by layer or block by block and improving quantized model performance. Third, we introduce a random sampling strategy without replacement to alleviate the excessive calibration data requirement during fine-tuning, ensuring efficient deployment of quantized models on IoT devices. Finally, the effectiveness of CaPTQ is thoroughly validated on both classification and detection tasks.
 
 <p align="center">
-  <img src="./images/framework_diagram.jpg" alt="Framework" width="600"><br>
-  <em><sub>Fig. 1: Overview of the proposed framework. We first apply the proposed CaPTQ method to quantize pre-trained CNN models on a cloud server, and then deploy the quantized models to IoT devices. The goal is to reduce quantization loss and minimize the volume of calibration data required by selecting appropriate calibration samples.</sub></em>
+  <img src="./images/framework_diagram.jpg" alt="Framework" width="800"><br>
+  <em>Fig. 1: Overview of the proposed framework. We first apply the proposed CaPTQ method to quantize pre-trained CNN models on a cloud server, and then deploy the quantized models to IoT devices. The goal is to reduce quantization loss and minimize the volume of calibration data required by selecting appropriate calibration samples.<em>
 </p>
 
 ## File Organization
@@ -138,20 +138,20 @@ We conducted evaluation experiments for image classification services on the Ima
 
 
 <p align="center">
-  <img src="./images/w4a4.png" alt="W4A4" width="350"><br>
+  <img src="./images/w4a4.png" alt="W4A4" width="500"><br>
   <em><sub>(a) W4A4</sub></em>
 </p>
 <p align="center">
-  <img src="./images/w3a3.png" alt="W3A3" width="350"><br>
+  <img src="./images/w3a3.png" alt="W3A3" width="500"><br>
   <em><sub>(b) W3A3</sub></em>
 </p>
 <p align="center">
-  <img src="./images/w2a4.png" alt="W2A4" width="350"><br>
+  <img src="./images/w2a4.png" alt="W2A4" width="500"><br>
   <em><sub>(c) W2A4</sub></em>
 </p>
 
 <p align="center">
-  <em><sub>Fig. 2: Comparison of Top-1 performance between Ours+QDrop and QDrop on the ImageNet-1K dataset. Following the BRECQ setting, the first and last layers of the model are kept at 8-bit.</sub></em>
+  <em>Fig. 2: Comparison of Top-1 performance between Ours+QDrop and QDrop on the ImageNet-1K dataset. Following the BRECQ setting, the first and last layers of the model are kept at 8-bit./em>
 </p>
 
 （ii）Our method demonstrates notable accuracy improvements under low-bit quantization settings such as W2A2. As shown in Table 1, with the ResNet-18 model, BRECQ achieves 42.54%, whereas our method attains 42.68%, yielding a 0.14% improvement. With the MNasx2 model, QDrop achieves 51.14%, while our method reaches 55.26%, corresponding to a 4.12% gain. For the ResNet-101 model, QDrop records 59.68%, whereas our method achieves 64.32%, representing a 4.64% improvement. Finally, with the MobileNetV2 model, QDrop achieves 8.46%, while our method attains 14.47%, resulting in a 6.01% improvement.
@@ -167,6 +167,43 @@ We conducted evaluation experiments for image classification services on the Ima
 | **`Ours+BRECQ†`** |  `2/2`  | `42.68 (+0.14)` | `18.86 (+1.65)` | `10.86 (+1.26)` | `0.24 (+0.00)` | `3.43 (+0.19)` | `0.59 (+0.10)` |
 | QDrop         |    2/2     |   51.14  |   54.74  |    59.68  |      8.46   |  38.90  |  22.70 |
 | **`Ours+QDrop`** |  `2/2`  | `55.26 (+4.12)` | `59.84 (+5.10)` | `64.32 (+4.64)` | `14.47 (+6.01)` | `42.55 (+3.65)` | `29.74 (+7.04)` |
+
+<p></p>
+<table>
+  <thead>
+    <tr>
+      <th>Methods</th><th>Bits (W/A)</th><th>ResNet18</th><th>ResNet50</th>
+      <th>ResNet101</th><th>MobileNetV2</th><th>Reg600M</th><th>MNasx2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Full Prec.</td><td>32/32</td><td>71.01</td><td>76.63</td><td>77.37</td><td>72.20</td><td>73.71</td><td>76.68</td></tr>
+    <tr><td>BRECQ†</td><td>2/2</td><td>42.54</td><td>17.68</td><td>9.60</td><td>0.24</td><td>3.24</td><td>0.49</td></tr>
+    <tr>
+      <td><strong><code>Ours+BRECQ†</code></strong></td>
+      <td><code>2/2</code></td>
+      <td><code>42.68 (+0.14)</code></td>
+      <td><code>18.86 (+1.65)</code></td>
+      <td><code>10.86 (+1.26)</code></td>
+      <td><code>0.24 (+0.00)</code></td>
+      <td><code>3.43 (+0.19)</code></td>
+      <td><code>0.59 (+0.10)</code></td>
+    </tr>
+    <tr><td>QDrop</td><td>2/2</td><td>51.14</td><td>54.74</td><td>59.68</td><td>8.46</td><td>38.90</td><td>22.70</td></tr>
+    <tr>
+      <td><strong><code>Ours+QDrop</code></strong></td>
+      <td><code>2/2</code></td>
+      <td><code>55.26 (+4.12)</code></td>
+      <td><code>59.84 (+5.10)</code></td>
+      <td><code>64.32 (+4.64)</code></td>
+      <td><code>14.47 (+6.01)</code></td>
+      <td><code>42.55 (+3.65)</code></td>
+      <td><code>29.74 (+7.04)</code></td>
+    </tr>
+  </tbody>
+</table>
+<p></p>
+
 
 
 
