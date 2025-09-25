@@ -7,13 +7,19 @@ Training high-performance neural network models in the cloud, quantizing them in
 
 To address these challenges, we propose a calibration data selection method, termed CaPTQ. Specifically, we first analyze the error accumulation effect during quantization to investigate the precise role of calibration data in this process. Second, to mitigate the severe performance degradation of existing PTQ methods under low-bit settings, we propose selecting data with smoother pixel distributions during calibration, thereby reducing rounding and reconstruction losses layer by layer or block by block and improving quantized model performance. Third, we introduce a random sampling strategy without replacement to alleviate the excessive calibration data requirement during fine-tuning, ensuring efficient deployment of quantized models on IoT devices. Finally, the effectiveness of CaPTQ is thoroughly validated on both classification and detection tasks.
 
-<figure style="text-align:center; margin: 0;">
+<p align="center">
+  <img src="./images/framework_diagram.jpg" alt="Framework" width="600"><br>
+  <em><sub>Fig. 1: Overview of the proposed framework. We first apply the proposed CaPTQ method to quantize pre-trained CNN models on a cloud server, and then deploy the quantized models to IoT devices. The goal is to reduce quantization loss and minimize the volume of calibration data required by selecting appropriate calibration samples.</sub></em>
+</p>
+
+
+<!-- <figure style="text-align:center; margin: 0;">
   <img src="./images/framework_diagram.jpg" alt="框架图 / Framework diagram" width="600">
   <figcaption style="font-size:85%;">
     <em>Fig. 1: Overview of the proposed framework. We first apply the proposed CaPTQ method to quantize pre-trained CNN models on a cloud server, and then deploy the quantized models to IoT devices. The goal is to reduce quantization loss and minimize the volume of calibration data required by selecting appropriate calibration samples.</em>
     <br>
   </figcaption>
-</figure>
+</figure> -->
 
 ## File Organization
 ```
