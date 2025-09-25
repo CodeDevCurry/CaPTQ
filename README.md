@@ -162,16 +162,8 @@ We conducted evaluation experiments for image classification services on the Ima
   <caption><em>TABLE 1: Comparison of Top-1 performance between our method and representative PTQ methods on the ImageNet-1K dataset under the W2A2 quantization setting. Following the BRECQ convention, the first and last layers of the model are maintained at 8 bits.</em></caption>
 </table>
 
-<!-- | Methods         | Bits (W/A) | ResNet18        | ResNet50        | ResNet101       | MobileNetV2     | Reg600M         | MNasx2          |
-|:---------------:|:----------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|
-| Full Prec.      |    32/32   |      71.01      |      76.63      |      77.37      |      72.20      |      73.71      |      76.68      |
-| BRECQ†          |     2/2    |      42.54      |      17.68      |       9.60      |       0.24      |       3.24      |       0.49      |
-| **`Ours+BRECQ†`** |   `2/2`   | `42.68 (+0.14)` | `18.86 (+1.65)` | `10.86 (+1.26)` | `0.24 (+0.00)`  | `3.43 (+0.19)`  | `0.59 (+0.10)`  |
-| QDrop           |     2/2    |      51.14      |      54.74      |      59.68      |       8.46      |      38.90      |      22.70      |
-| **`Ours+QDrop`** |   `2/2`   | `55.26 (+4.12)` | `59.84 (+5.10)` | `64.32 (+4.64)` | `14.47 (+6.01)` | `42.55 (+3.65)` | `29.74 (+7.04)` | -->
-
-
 <p></p>
+
 <table align="center">
   <thead>
     <tr>
@@ -226,64 +218,3 @@ We conducted evaluation experiments for image classification services on the Ima
     </tr>
   </tbody>
 </table>
-<p></p>
-
-
-
-
-<!-- <div align="center" style="font-size:85%; line-height:1.25;">
-<table style="text-align:center;">
-  <caption style="caption-side:top; text-align:center; font-size:95%; margin-bottom:6px;">
-    <em>TABLE 1: Comparison of Top-1 performance between our method and representative PTQ methods on the ImageNet-1K dataset under the W2A2 quantization setting. Following the BRECQ convention, the first and last layers of the model are maintained at 8 bits.</em>
-  </caption>
-  <thead>
-    <tr>
-      <th style="text-align:center;">Methods</th>
-      <th style="text-align:center;">Bits (W/A)</th>
-      <th>ResNet18</th>
-      <th>ResNet50</th>
-      <th>ResNet101</th>
-      <th>MobileNetV2</th>
-      <th>Reg600M</th>
-      <th>MNasx2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:center;">Full Prec.</td>
-      <td style="text-align:center;">32/32</td>
-      <td>71.01</td><td>76.63</td><td>77.37</td><td>72.20</td><td>73.71</td><td>76.68</td>
-    </tr>
-    <tr>
-      <td style="text-align:center;">BRECQ&#8224;</td>
-      <td style="text-align:center;">2/2</td>
-      <td>42.54</td><td>17.68</td><td>9.60</td><td>0.24</td><td>3.24</td><td>0.49</td>
-    </tr>
-    <tr style="background:#f2f2f2;">
-      <td style="text-align:center;">Ours+BRECQ&#8224;</td>
-      <td style="text-align:center;">2/2</td>
-      <td style="white-space:nowrap;">42.68&nbsp;<span style="color:#c00;font-size:70%;">(+0.14)</span></td>
-      <td style="white-space:nowrap;">18.86&nbsp;<span style="color:#c00;font-size:70%;">(+1.65)</span></td>
-      <td style="white-space:nowrap;">10.86&nbsp;<span style="color:#c00;font-size:70%;">(+1.26)</span></td>
-      <td style="white-space:nowrap;">0.24&nbsp;<span style="color:#c00;font-size:70%;">(+0.00)</span></td>
-      <td style="white-space:nowrap;">3.43&nbsp;<span style="color:#c00;font-size:70%;">(+0.19)</span></td>
-      <td style="white-space:nowrap;">0.59&nbsp;<span style="color:#c00;font-size:70%;">(+0.10)</span></td>
-    </tr>
-    <tr>
-      <td style="text-align:center;">QDrop</td>
-      <td style="text-align:center;">2/2</td>
-      <td>51.14</td><td>54.74</td><td>59.68</td><td>8.46</td><td>38.90</td><td>22.70</td>
-    </tr>
-    <tr style="background:#f2f2f2;">
-      <td style="text-align:center;">Ours+QDrop</td>
-      <td style="text-align:center;">2/2</td>
-      <td style="white-space:nowrap;">55.26&nbsp;<span style="color:#c00;font-size:70%;">(+4.12)</span></td>
-      <td style="white-space:nowrap;">59.84&nbsp;<span style="color:#c00;font-size:70%;">(+5.10)</span></td>
-      <td style="white-space:nowrap;">64.32&nbsp;<span style="color:#c00;font-size:70%;">(+4.64)</span></td>
-      <td style="white-space:nowrap;">14.47&nbsp;<span style="color:#c00;font-size:70%;">(+6.01)</span></td>
-      <td style="white-space:nowrap;">42.55&nbsp;<span style="color:#c00;font-size:70%;">(+3.65)</span></td>
-      <td style="white-space:nowrap;">29.74&nbsp;<span style="color:#c00;font-size:70%;">(+7.04)</span></td>
-    </tr>
-  </tbody>
-</table>
-</div> -->
