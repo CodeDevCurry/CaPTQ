@@ -145,7 +145,7 @@ We conducted evaluation experiments for image classification services on the Ima
 </p>
 <p align="center">
   <img src="./images/w3a3.png" alt="W3A3" width="450"><br>
-  <em>(b) W3A3/em>
+  <em>(b) W3A3</em>
 </p>
 <p align="center">
   <img src="./images/w2a4.png" alt="W2A4" width="450"><br>
@@ -199,14 +199,14 @@ We conducted evaluation experiments for image classification services on the Ima
       <td align="center">3.24</td><td align="center">0.49</td>
     </tr>
     <tr>
-      <td align="center"><strong><code>Ours+BRECQ†</code></strong></td>
-      <td align="center"><code>2/2</code></td>
-      <td align="center"><code>42.68<sub>(+0.14)</sub></code></td>
-      <td align="center"><code>18.86<sub>(+1.65)</sub></code></td>
-      <td align="center"><code>10.86<sub>(+1.26)</sub></code></td>
-      <td align="center"><code>0.24<sub>(+0.00)</sub></code></td>
-      <td align="center"><code>3.43<sub>(+0.19)</sub></code></td>
-      <td align="center"><code>0.59<sub>(+0.10)</sub></code></td>
+      <td align="center">Ours+BRECQ†</td>
+      <td align="center">2/2</td>
+      <td align="center">42.68<sub>(+0.14)</sub></td>
+      <td align="center">18.86<sub>(+1.65)</sub></td>
+      <td align="center">10.86<sub>(+1.26)</sub></td>
+      <td align="center">0.24<sub>(+0.00)</sub></td>
+      <td align="center">3.43<sub>(+0.19)</sub></td>
+      <td align="center">0.59<sub>(+0.10)</sub></td>
     </tr>
     <tr>
       <td align="center">QDrop</td><td align="center">2/2</td>
@@ -215,14 +215,14 @@ We conducted evaluation experiments for image classification services on the Ima
       <td align="center">38.90</td><td align="center">22.70</td>
     </tr>
     <tr>
-      <td align="center"><strong><code>Ours+QDrop</code></strong></td>
-      <td align="center"><code>2/2</code></td>
-      <td align="center"><code>55.26<sub>(+4.12)</sub></code></td>
-      <td align="center"><code>59.84<sub>(+5.10)</sub></code></td>
-      <td align="center"><code>64.32<sub>(+4.64)</sub></code></td>
-      <td align="center"><code>14.47<sub>(+6.01)</sub></code></td>
-      <td align="center"><code>42.55<sub>(+3.65)</sub></code></td>
-      <td align="center"><code>29.74<sub>(+7.04)</sub></code></td>
+      <td align="center">Ours+QDrop</td>
+      <td align="center">2/2</td>
+      <td align="center">55.26<sub>(+4.12)</sub></td>
+      <td align="center">59.84<sub>(+5.10)</sub></td>
+      <td align="center">64.32<sub>(+4.64)</sub></td>
+      <td align="center">14.47<sub>(+6.01)</sub></td>
+      <td align="center">42.55<sub>(+3.65)</sub></td>
+      <td align="center">29.74<sub>(+7.04)</sub></td>
     </tr>
   </tbody>
 </table>
