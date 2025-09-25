@@ -201,7 +201,7 @@ We conducted evaluation experiments for image classification services on the Ima
     <tr>
       <td align="center"><strong><code>Ours+BRECQ†</code></strong></td>
       <td align="center"><code>2/2</code></td>
-      <td align="center"><code>42.68 (+0.14)</code></td>
+      <td align="center"><code>42.68<sub>(+0.14)</sub></code></td>
       <td align="center"><code>18.86 (+1.65)</code></td>
       <td align="center"><code>10.86 (+1.26)</code></td>
       <td align="center"><code>0.24 (+0.00)</code></td>
