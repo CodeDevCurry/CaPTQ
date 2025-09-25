@@ -162,13 +162,13 @@ We conducted evaluation experiments for image classification services on the Ima
   <caption><em>TABLE 1: Comparison of Top-1 performance between our method and representative PTQ methods on the ImageNet-1K dataset under the W2A2 quantization setting. Following the BRECQ convention, the first and last layers of the model are maintained at 8 bits.</em></caption>
 </table>
 
-| Methods         | Bits (W/A) | ResNet18        | ResNet50        | ResNet101       | MobileNetV2     | Reg600M         | MNasx2          |
+<!-- | Methods         | Bits (W/A) | ResNet18        | ResNet50        | ResNet101       | MobileNetV2     | Reg600M         | MNasx2          |
 |:---------------:|:----------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|
 | Full Prec.      |    32/32   |      71.01      |      76.63      |      77.37      |      72.20      |      73.71      |      76.68      |
 | BRECQ†          |     2/2    |      42.54      |      17.68      |       9.60      |       0.24      |       3.24      |       0.49      |
 | **`Ours+BRECQ†`** |   `2/2`   | `42.68 (+0.14)` | `18.86 (+1.65)` | `10.86 (+1.26)` | `0.24 (+0.00)`  | `3.43 (+0.19)`  | `0.59 (+0.10)`  |
 | QDrop           |     2/2    |      51.14      |      54.74      |      59.68      |       8.46      |      38.90      |      22.70      |
-| **`Ours+QDrop`** |   `2/2`   | `55.26 (+4.12)` | `59.84 (+5.10)` | `64.32 (+4.64)` | `14.47 (+6.01)` | `42.55 (+3.65)` | `29.74 (+7.04)` |
+| **`Ours+QDrop`** |   `2/2`   | `55.26 (+4.12)` | `59.84 (+5.10)` | `64.32 (+4.64)` | `14.47 (+6.01)` | `42.55 (+3.65)` | `29.74 (+7.04)` | -->
 
 
 <p></p>
@@ -202,11 +202,11 @@ We conducted evaluation experiments for image classification services on the Ima
       <td align="center"><strong><code>Ours+BRECQ†</code></strong></td>
       <td align="center"><code>2/2</code></td>
       <td align="center"><code>42.68<sub>(+0.14)</sub></code></td>
-      <td align="center"><code>18.86 (+1.65)</code></td>
-      <td align="center"><code>10.86 (+1.26)</code></td>
-      <td align="center"><code>0.24 (+0.00)</code></td>
-      <td align="center"><code>3.43 (+0.19)</code></td>
-      <td align="center"><code>0.59 (+0.10)</code></td>
+      <td align="center"><code>18.86<sub>(+1.65)</sub></code></td>
+      <td align="center"><code>10.86<sub>(+1.26)</sub></code></td>
+      <td align="center"><code>0.24<sub>(+0.00)</sub></code></td>
+      <td align="center"><code>3.43<sub>(+0.19)</sub></code></td>
+      <td align="center"><code>0.59<sub>(+0.10)</sub></code></td>
     </tr>
     <tr>
       <td align="center">QDrop</td><td align="center">2/2</td>
@@ -217,12 +217,12 @@ We conducted evaluation experiments for image classification services on the Ima
     <tr>
       <td align="center"><strong><code>Ours+QDrop</code></strong></td>
       <td align="center"><code>2/2</code></td>
-      <td align="center"><code>55.26 (+4.12)</code></td>
-      <td align="center"><code>59.84 (+5.10)</code></td>
-      <td align="center"><code>64.32 (+4.64)</code></td>
-      <td align="center"><code>14.47 (+6.01)</code></td>
-      <td align="center"><code>42.55 (+3.65)</code></td>
-      <td align="center"><code>29.74 (+7.04)</code></td>
+      <td align="center"><code>55.26<sub>(+4.12)</sub></code></td>
+      <td align="center"><code>59.84<sub>(+5.10)</sub></code></td>
+      <td align="center"><code>64.32<sub>(+4.64)</sub></code></td>
+      <td align="center"><code>14.47<sub>(+6.01)</sub></code></td>
+      <td align="center"><code>42.55<sub>(+3.65)</sub></code></td>
+      <td align="center"><code>29.74<sub>(+7.04)</sub></code></td>
     </tr>
   </tbody>
 </table>
