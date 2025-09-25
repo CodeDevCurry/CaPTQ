@@ -1,6 +1,7 @@
 # CaPTQ
 
 ## Introduction
+
 This repository provides the official code implementation of our paper CaPTQ: Calibration Data Selection for Visual Services Based on Post-Training Quantization. The object detection component will be made available in this repository in a future update.
 
 Training high-performance neural network models in the cloud, quantizing them into low-bit representations, and deploying these compact models on ubiquitous Internet of Things (IoT) devices has become mainstream. This paradigm enables the delivery of high-quality visual services (e.g., image classification and object detection) with reduced resource demands and rapid response times. However, existing post-training quantization (PTQ) methods face two major limitations: degraded performance of low-bit models and substantial resource consumption due to the large amount of calibration data required.
@@ -13,6 +14,7 @@ To address these challenges, we propose a calibration data selection method, ter
 </p>
 
 ## File Organization
+
 ```
 CaPTQ
 ├── exp/                                [Quantization Configuration]
@@ -138,16 +140,16 @@ We conducted evaluation experiments for image classification services on the Ima
 
 
 <p align="center">
-  <img src="./images/w4a4.png" alt="W4A4" width="500"><br>
-  <em><sub>(a) W4A4</sub></em>
+  <img src="./images/w4a4.png" alt="W4A4" width="450"><br>
+  <em>(a) W4A4</em>
 </p>
 <p align="center">
-  <img src="./images/w3a3.png" alt="W3A3" width="500"><br>
-  <em><sub>(b) W3A3</sub></em>
+  <img src="./images/w3a3.png" alt="W3A3" width="450"><br>
+  <em>(b) W3A3/em>
 </p>
 <p align="center">
-  <img src="./images/w2a4.png" alt="W2A4" width="500"><br>
-  <em><sub>(c) W2A4</sub></em>
+  <img src="./images/w2a4.png" alt="W2A4" width="450"><br>
+  <em>(c) W2A4</em>
 </p>
 
 <p align="center">
@@ -160,45 +162,67 @@ We conducted evaluation experiments for image classification services on the Ima
   <caption><em>TABLE 1: Comparison of Top-1 performance between our method and representative PTQ methods on the ImageNet-1K dataset under the W2A2 quantization setting. Following the BRECQ convention, the first and last layers of the model are maintained at 8 bits.</em></caption>
 </table>
 
-| Methods       | Bits (W/A) | ResNet18 | ResNet50 | ResNet101 | MobileNetV2 | Reg600M | MNasx2 |
-|:--------------|:----------:|---------:|---------:|----------:|------------:|--------:|-------:|
-| Full Prec.    |   32/32    |   71.01  |   76.63  |    77.37  |     72.20   |  73.71  |  76.68 |
-| BRECQ†        |    2/2     |   42.54  |   17.68  |     9.60  |      0.24   |   3.24  |   0.49 |
-| **`Ours+BRECQ†`** |  `2/2`  | `42.68 (+0.14)` | `18.86 (+1.65)` | `10.86 (+1.26)` | `0.24 (+0.00)` | `3.43 (+0.19)` | `0.59 (+0.10)` |
-| QDrop         |    2/2     |   51.14  |   54.74  |    59.68  |      8.46   |  38.90  |  22.70 |
-| **`Ours+QDrop`** |  `2/2`  | `55.26 (+4.12)` | `59.84 (+5.10)` | `64.32 (+4.64)` | `14.47 (+6.01)` | `42.55 (+3.65)` | `29.74 (+7.04)` |
+| Methods         | Bits (W/A) | ResNet18        | ResNet50        | ResNet101       | MobileNetV2     | Reg600M         | MNasx2          |
+|:---------------:|:----------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|
+| Full Prec.      |    32/32   |      71.01      |      76.63      |      77.37      |      72.20      |      73.71      |      76.68      |
+| BRECQ†          |     2/2    |      42.54      |      17.68      |       9.60      |       0.24      |       3.24      |       0.49      |
+| **`Ours+BRECQ†`** |   `2/2`   | `42.68 (+0.14)` | `18.86 (+1.65)` | `10.86 (+1.26)` | `0.24 (+0.00)`  | `3.43 (+0.19)`  | `0.59 (+0.10)`  |
+| QDrop           |     2/2    |      51.14      |      54.74      |      59.68      |       8.46      |      38.90      |      22.70      |
+| **`Ours+QDrop`** |   `2/2`   | `55.26 (+4.12)` | `59.84 (+5.10)` | `64.32 (+4.64)` | `14.47 (+6.01)` | `42.55 (+3.65)` | `29.74 (+7.04)` |
+
 
 <p></p>
-<table>
+<table align="center">
   <thead>
     <tr>
-      <th>Methods</th><th>Bits (W/A)</th><th>ResNet18</th><th>ResNet50</th>
-      <th>ResNet101</th><th>MobileNetV2</th><th>Reg600M</th><th>MNasx2</th>
+      <th align="center">Methods</th>
+      <th align="center">Bits (W/A)</th>
+      <th align="center">ResNet18</th>
+      <th align="center">ResNet50</th>
+      <th align="center">ResNet101</th>
+      <th align="center">MobileNetV2</th>
+      <th align="center">Reg600M</th>
+      <th align="center">MNasx2</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td>Full Prec.</td><td>32/32</td><td>71.01</td><td>76.63</td><td>77.37</td><td>72.20</td><td>73.71</td><td>76.68</td></tr>
-    <tr><td>BRECQ†</td><td>2/2</td><td>42.54</td><td>17.68</td><td>9.60</td><td>0.24</td><td>3.24</td><td>0.49</td></tr>
     <tr>
-      <td><strong><code>Ours+BRECQ†</code></strong></td>
-      <td><code>2/2</code></td>
-      <td><code>42.68 (+0.14)</code></td>
-      <td><code>18.86 (+1.65)</code></td>
-      <td><code>10.86 (+1.26)</code></td>
-      <td><code>0.24 (+0.00)</code></td>
-      <td><code>3.43 (+0.19)</code></td>
-      <td><code>0.59 (+0.10)</code></td>
+      <td align="center">Full Prec.</td><td align="center">32/32</td>
+      <td align="center">71.01</td><td align="center">76.63</td>
+      <td align="center">77.37</td><td align="center">72.20</td>
+      <td align="center">73.71</td><td align="center">76.68</td>
     </tr>
-    <tr><td>QDrop</td><td>2/2</td><td>51.14</td><td>54.74</td><td>59.68</td><td>8.46</td><td>38.90</td><td>22.70</td></tr>
     <tr>
-      <td><strong><code>Ours+QDrop</code></strong></td>
-      <td><code>2/2</code></td>
-      <td><code>55.26 (+4.12)</code></td>
-      <td><code>59.84 (+5.10)</code></td>
-      <td><code>64.32 (+4.64)</code></td>
-      <td><code>14.47 (+6.01)</code></td>
-      <td><code>42.55 (+3.65)</code></td>
-      <td><code>29.74 (+7.04)</code></td>
+      <td align="center">BRECQ†</td><td align="center">2/2</td>
+      <td align="center">42.54</td><td align="center">17.68</td>
+      <td align="center">9.60</td><td align="center">0.24</td>
+      <td align="center">3.24</td><td align="center">0.49</td>
+    </tr>
+    <tr>
+      <td align="center"><strong><code>Ours+BRECQ†</code></strong></td>
+      <td align="center"><code>2/2</code></td>
+      <td align="center"><code>42.68 (+0.14)</code></td>
+      <td align="center"><code>18.86 (+1.65)</code></td>
+      <td align="center"><code>10.86 (+1.26)</code></td>
+      <td align="center"><code>0.24 (+0.00)</code></td>
+      <td align="center"><code>3.43 (+0.19)</code></td>
+      <td align="center"><code>0.59 (+0.10)</code></td>
+    </tr>
+    <tr>
+      <td align="center">QDrop</td><td align="center">2/2</td>
+      <td align="center">51.14</td><td align="center">54.74</td>
+      <td align="center">59.68</td><td align="center">8.46</td>
+      <td align="center">38.90</td><td align="center">22.70</td>
+    </tr>
+    <tr>
+      <td align="center"><strong><code>Ours+QDrop</code></strong></td>
+      <td align="center"><code>2/2</code></td>
+      <td align="center"><code>55.26 (+4.12)</code></td>
+      <td align="center"><code>59.84 (+5.10)</code></td>
+      <td align="center"><code>64.32 (+4.64)</code></td>
+      <td align="center"><code>14.47 (+6.01)</code></td>
+      <td align="center"><code>42.55 (+3.65)</code></td>
+      <td align="center"><code>29.74 (+7.04)</code></td>
     </tr>
   </tbody>
 </table>
