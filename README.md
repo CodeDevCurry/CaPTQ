@@ -12,15 +12,6 @@ To address these challenges, we propose a calibration data selection method, ter
   <em><sub>Fig. 1: Overview of the proposed framework. We first apply the proposed CaPTQ method to quantize pre-trained CNN models on a cloud server, and then deploy the quantized models to IoT devices. The goal is to reduce quantization loss and minimize the volume of calibration data required by selecting appropriate calibration samples.</sub></em>
 </p>
 
-
-<!-- <figure style="text-align:center; margin: 0;">
-  <img src="./images/framework_diagram.jpg" alt="框架图 / Framework diagram" width="600">
-  <figcaption style="font-size:85%;">
-    <em>Fig. 1: Overview of the proposed framework. We first apply the proposed CaPTQ method to quantize pre-trained CNN models on a cloud server, and then deploy the quantized models to IoT devices. The goal is to reduce quantization loss and minimize the volume of calibration data required by selecting appropriate calibration samples.</em>
-    <br>
-  </figcaption>
-</figure> -->
-
 ## File Organization
 ```
 CaPTQ
@@ -145,31 +136,41 @@ We conducted evaluation experiments for image classification services on the Ima
 
 (i) Our method improves model accuracy across multiple quantization bit-widths. As shown in Fig. 2, under the W4A4 configuration with the ResNet-101 model, QDrop achieves an accuracy of 72.98%, while our method attains 76.33%, representing a 2.88% improvement. Under the W2A4 configuration with the MNasx2 model, QDrop achieves 62.36%, whereas our method reaches 64.79%, corresponding to a 2.43% gain. Under the W3A3 configuration with the MobileNetV2 model, QDrop records 54.27%, while our method achieves 57.76%, resulting in a 3.49% improvement.
 
-<figure style="text-align:center; margin:0;">
 
-  <figure style="margin:0 0 10px 0;">
-    <img src="./images/w4a4.png" alt="W4A4" width="350">
-    <figcaption style="font-size:85%;"><em>(a) W4A4</em></figcaption>
-  </figure>
+<p align="center">
+  <img src="./images/w4a4.png" alt="W4A4" width="350"><br>
+  <em><sub>(a) W4A4</sub></em>
+</p>
+<p align="center">
+  <img src="./images/w3a3.png" alt="W3A3" width="350"><br>
+  <em><sub>(b) W3A3</sub></em>
+</p>
+<p align="center">
+  <img src="./images/w2a4.png" alt="W2A4" width="350"><br>
+  <em><sub>(c) W2A4</sub></em>
+</p>
 
-  <figure style="margin:12px 0 10px 0;">
-    <img src="./images/w3a3.png" alt="W3A3" width="350">
-    <figcaption style="font-size:85%;"><em>(b) W3A3</em></figcaption>
-  </figure>
-
-  <figure style="margin:12px 0 10px 0;">
-    <img src="./images/w2a4.png" alt="W2A4" width="350">
-    <figcaption style="font-size:85%;"><em>(c) W2A4</em></figcaption>
-  </figure>
-
-  <figcaption style="font-size:85%; margin-top:8px;">
-    <em>Fig. 2: Comparison of Top-1 performance between Ours+QDrop and QDrop on the ImageNet-1K dataset. Following the BRECQ setting, the first and last layers of the model are kept at 8-bit.</em>
-  </figcaption>
-</figure>
-<div style="height:12px;"></div>
+<p align="center">
+  <em><sub>Fig. 2: Comparison of Top-1 performance between Ours+QDrop and QDrop on the ImageNet-1K dataset. Following the BRECQ setting, the first and last layers of the model are kept at 8-bit.</sub></em>
+</p>
 
 （ii）Our method demonstrates notable accuracy improvements under low-bit quantization settings such as W2A2. As shown in Table 1, with the ResNet-18 model, BRECQ achieves 42.54%, whereas our method attains 42.68%, yielding a 0.14% improvement. With the MNasx2 model, QDrop achieves 51.14%, while our method reaches 55.26%, corresponding to a 4.12% gain. For the ResNet-101 model, QDrop records 59.68%, whereas our method achieves 64.32%, representing a 4.64% improvement. Finally, with the MobileNetV2 model, QDrop achieves 8.46%, while our method attains 14.47%, resulting in a 6.01% improvement.
-<div align="center" style="font-size:85%; line-height:1.25;">
+
+<table>
+  <caption><em>TABLE 1: Comparison of Top-1 performance between our method and representative PTQ methods on the ImageNet-1K dataset under the W2A2 quantization setting. Following the BRECQ convention, the first and last layers of the model are maintained at 8 bits.</em></caption>
+</table>
+
+| Methods       | Bits (W/A) | ResNet18 | ResNet50 | ResNet101 | MobileNetV2 | Reg600M | MNasx2 |
+|:--------------|:----------:|---------:|---------:|----------:|------------:|--------:|-------:|
+| Full Prec.    |   32/32    |   71.01  |   76.63  |    77.37  |     72.20   |  73.71  |  76.68 |
+| BRECQ†        |    2/2     |   42.54  |   17.68  |     9.60  |      0.24   |   3.24  |   0.49 |
+| **`Ours+BRECQ†`** |  `2/2`  | `42.68 (+0.14)` | `18.86 (+1.65)` | `10.86 (+1.26)` | `0.24 (+0.00)` | `3.43 (+0.19)` | `0.59 (+0.10)` |
+| QDrop         |    2/2     |   51.14  |   54.74  |    59.68  |      8.46   |  38.90  |  22.70 |
+| **`Ours+QDrop`** |  `2/2`  | `55.26 (+4.12)` | `59.84 (+5.10)` | `64.32 (+4.64)` | `14.47 (+6.01)` | `42.55 (+3.65)` | `29.74 (+7.04)` |
+
+
+
+<!-- <div align="center" style="font-size:85%; line-height:1.25;">
 <table style="text-align:center;">
   <caption style="caption-side:top; text-align:center; font-size:95%; margin-bottom:6px;">
     <em>TABLE 1: Comparison of Top-1 performance between our method and representative PTQ methods on the ImageNet-1K dataset under the W2A2 quantization setting. Following the BRECQ convention, the first and last layers of the model are maintained at 8 bits.</em>
@@ -224,4 +225,4 @@ We conducted evaluation experiments for image classification services on the Ima
     </tr>
   </tbody>
 </table>
-</div>
+</div> -->
